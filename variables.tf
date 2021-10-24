@@ -1,14 +1,9 @@
-variable "programa" {
-  description = "exemplo de variavel"
-  default     = "mentoria-iac"
+variable "app_name" {
+  type        = string
+  description = "(Required) The Heroku app to add to."
 }
 
-variable "ferramenta_1" {
-  description = "exemplo de variavel"
-  default     = "terraform"
-}
-
-variable "ferramenta_2" {
-  description = "exemplo de variavel"
-  default     = "ansible"
+variable "addon_plan" {
+  type        = string
+  description = "(Required) The Heroku addon plan to add."
 }

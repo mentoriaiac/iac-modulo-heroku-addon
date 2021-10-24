@@ -1,11 +1,11 @@
-module "module_name" {
-  source       = "../"
-  programa     = "mentoria-iac"
-  ferramenta_1 = "docker"
-  ferramenta_2 = "puppet"
+resource "heroku_app" "app" {
+  name   = var.name
+  region = var.region
 }
 
-
-output "ferramentas" {
-  value = module.module_name.ferramentas
+module "module_name" {
+  source       = "../"
+  app_name     = heroku_app.app.name
+  addon_plan   = "heroku-postgres:hobby-basic"
+  depends_on = [ heroku_app.app ]
 }
