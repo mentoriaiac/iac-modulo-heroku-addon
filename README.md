@@ -21,39 +21,49 @@ Este repositorio deve conter a estrutura básica para a criação de uma modulo 
 
 | Name | Version |
 |------|---------|
-| Terraform | >= 0.13.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_heroku"></a> [heroku](#requirement\_heroku) | ~> 4.0 |
 
 ## Providers
-  
+
 | Name | Version |
 |------|---------|
-| local | n/a |
+| <a name="provider_heroku"></a> [heroku](#provider\_heroku) | ~> 4.0 |
+
+## Modules
+
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| local_file | resource |
-| local_file | data source |
+| [heroku_addon.addon](https://registry.terraform.io/providers/heroku/heroku/latest/docs/resources/addon) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-|ferramenta_1 | exemplo de variavel | `string` | `"terraform"` | no |
-|ferramenta_2 | exemplo de variavel | `string` | `"ansible"` | no |
-|programa | exemplo de variavel | `string` | `"mentoria-iac"` | no |
+| <a name="input_addon_plan"></a> [addon\_plan](#input\_addon\_plan) | (Required) The Heroku addon plan to add. | `string` | n/a | yes |
+| <a name="input_app_name"></a> [app\_name](#input\_app\_name) | (Required) The Heroku app to add to. | `string` | n/a | yes |
 
 ## Outputs
- 
+
 | Name | Description |
 |------|-------------|
-|ferramentas | exemplo de saida |
+| <a name="output_heroku_addon_id"></a> [heroku\_addon\_id](#output\_heroku\_addon\_id) | n/a |
+| <a name="output_heroku_addon_name"></a> [heroku\_addon\_name](#output\_heroku\_addon\_name) | n/a |
+
 
 ## Testar localmente
 
-Aqui você descreve como a pessoa que utilizar esse módulo pode testar localmente. Coloque todos os detalhes necessários para executar localmente.
+Entre na pasta ```how-to-use-this-module```e execute os comandos do terraform.
 
+```
+terraform init
+terraform plan -out plan_file
+terraform apply "plan_file"
+```
 ## Exemplos
 
 A pasta ``how-to-use-this-module`` contém exemplos de utilização do módulo. Esta abordagem é interessante para auxiliar na exeperiência de quem for utilizar este módulo no futuro. Já foi criado um arquivo terraform chamado `terrafile.tf` e ele deve ser usado como referência pra colocar dentro deste diretório de exemplos.
